@@ -1,5 +1,5 @@
 # Hello OJ 
-This is a project for practice **O**nline **J**udge test.
+This is a project for practice Online Judge test.
 
 # FAQ
 - **question?** Answer for question one.
