@@ -46,6 +46,15 @@ public class SearchDimesion {
 		//begin search now!
 		i=0;j=n-1;
 		
+		while(i<n && j>=0 ){
+			if( x > data[i][j] ) i++;
+			else if( x < data[i][j]) j--;
+			else {
+				System.out.println("Found: "+ i + " " + j);
+				i++;
+			}
+		}
+		/*
 		while(true){
 			//search for i direction
 			while( (x > data[i][j]) && i<n ) i++;
@@ -66,7 +75,7 @@ public class SearchDimesion {
 			if( j<0 ) break;
 
 		}
-		
+		*/
 	}
 	
 	/**
