@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Scanner;
 /**
  * Given a 2-dimension matric, data of each dimension is  in the ascending order。
- * how to search the matric when giving a specific number?
+ * how to search and find the giving a specific number when using this matric? 
  *  
  * @author wang
  *
