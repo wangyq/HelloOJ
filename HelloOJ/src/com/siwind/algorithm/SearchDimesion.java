@@ -2,7 +2,13 @@ package com.siwind.algorithm;
 
 import java.io.File;
 import java.util.Scanner;
-
+/**
+ * Given a 2-dimension matric, data of each dimension is  in the ascending order。
+ * how to search the matric when giving a specific number?
+ *  
+ * @author wang
+ *
+ */
 //public class Main {
 public class SearchDimesion {
 
