@@ -99,16 +99,17 @@ public class StorageCenter {
 
     public static void testoneline(){
         //int cost[] = {3,1,2,3,2};
-        int cost[] = {2,3,2,1,3};
+        //int cost[] = {2,3,2,1,3};
+        int cost[] = {1,2,4};
 
         int loc = findOptLocation(cost);
         System.out.println(loc);
 
     }
     public static void test(){
-        //testoneline();
-        input();
-        findOptLocation();
+        testoneline();
+        //input();
+        //findOptLocation();
     }
 
     /**
