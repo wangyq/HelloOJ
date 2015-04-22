@@ -27,13 +27,31 @@ public class StorageCenter {
      1 1
      6
 
-     A: 0 0
+     Answer: 0 0
      ==============
      2 3
      0 5 1
      2 0 0
 
      A: 0 1
+     ================
+     4 6
+     1 0 5 2 3 1
+     2 3 0 3 1 4
+     3 0 1 4 2 2
+     4 2 0 2 1 3
+
+     A: 1 3
+
+     ================
+     5 9
+     1 0 5 2 3 1 2 0 3
+     2 3 0 3 1 4 1 3 2
+     3 0 1 4 2 2 0 2 5
+     4 2 0 2 1 3 2 4 1
+     3 2 1 2 1 0 2 4 1
+
+     A: 2 4
 
      */
     public static void input(){
@@ -44,7 +62,7 @@ public class StorageCenter {
 
         m_m = new int[m];
         m_n = new int[n];
-        //matric = new int[m][n];
+        matric = new int[m][n];
 
         for(int k=0;k<m;k++ ) m_m[k] = 0;
         for(int k=0;k<n;k++ ) m_n[k] = 0;
@@ -54,7 +72,7 @@ public class StorageCenter {
                 int c = sc.nextInt();  //read a cost.
                 m_m[i] += c;
                 m_n[j] += c;
-                //matric[i][j] = sc.nextInt();
+                matric[i][j] = c;
 
             }
         }
@@ -90,11 +108,52 @@ public class StorageCenter {
         return loc;
     }
 
-    public static void findOptLocation(){
+
+    public static void SolutionOptLocation(){
         int line = findOptLocation(m_m);
         int column = findOptLocation(m_n);
 
         System.out.println(line+" " + column);
+    }
+
+    public static int getCostInXY(int x, int y){
+        int cost = 0;
+        int dist = 0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                dist = Math.abs(x-i) + Math.abs(y-j);
+                cost += dist*matric[i][j];
+            }
+        }
+        return cost;
+    }
+    /**
+     * Brute force to find the answer!
+     */
+    public static void SolutionOptLocationBruteForce(){
+        int cost[][]=new int[m][n];
+        int min = getCostInXY(0,0);
+        int x=0,y=0;
+
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                cost[i][j] = getCostInXY(i,j);  //find all cost in every one place!
+                if( min > cost[i][j]){
+                    min = cost[i][j];
+                    x = i;
+                    y = j;
+                }
+            }
+        }
+
+        System.out.println("Location is: " + x + " " + y);
+        System.out.println("Costs is: ");
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(cost[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 
     public static void testoneline(){
@@ -107,9 +166,10 @@ public class StorageCenter {
 
     }
     public static void test(){
-        testoneline();
-        //input();
-        //findOptLocation();
+        //testoneline();
+        input();
+        SolutionOptLocation();
+        SolutionOptLocationBruteForce();
     }
 
     /**
