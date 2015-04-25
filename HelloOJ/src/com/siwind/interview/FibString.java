@@ -31,6 +31,45 @@ package com.siwind.interview;
  */
 public class FibString {
 
+    public static void doLuckSubString(String str){
+        int i=0,j=0,k=0;
+        int fib1=1,fib2=1;
+        int difnum = 0;
+
+        for(i=0;i<str.length();i++){
+
+            for(j=i;j<str.length();j++){
+                if( i==j ){
+                    difnum = 1;
+                    fib1 = 1;
+                    fib2 = 2;
+
+                }else{//
+                    for(k=i;k<j;k++){
+                        if(str.charAt(k) == str.charAt(j)){
+                            break;
+                        }
+                    }//end of for
+                    if( k>=j ){
+                        difnum++;
+                        if( difnum>fib1 ){
+                            int tmp = fib1;
+                            fib1 = fib2;
+                            fib2 = fib1 + tmp;
+                        }
+                    }
+                }//end of else, and update difnum
+                if (difnum == fib1 ) {
+
+                    String substr = str.substring(i, j + 1);
+                    String str1 = str.substring(0,j);
+                    if( !str1.contains(substr)) {
+                        System.out.println(substr);
+                    }
+                }
+            }
+        }
+    }
     public static void doLuckString(String str){
         int i=0,j=0,k=0;
         int fib1=1,fib2=1;
@@ -81,8 +120,8 @@ public class FibString {
     }
 
     public static void test(){
-        String str = "aabcdefbedgcdg";//aabcd,
-        doLuckString(str);
+        String str = "aabcd";//aabcd,aabcdefbedgcdg
+        doLuckSubString(str);
     }
     /**
      *
