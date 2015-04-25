@@ -3,18 +3,18 @@ package com.siwind.interview;
 /**
  * Created by wang on 2015/4/24.
  *
- ÃèÊö
+ æè¿°
  A string s is LUCKY if and only if the number of different characters in s is a fibonacci number. Given a string consisting of only lower case letters, output all its lucky non-empty substrings in lexicographical order. Same substrings should be printed once.
 
- ÊäÈë
+ è¾“å…¥
  A string consisting no more than 100 lower case letters.
 
- Êä³ö
+ è¾“å‡º
  Output the lucky substrings in lexicographical order, one per line. Same substrings should be printed once.
 
- ÑùÀıÊäÈë
+ æ ·ä¾‹è¾“å…¥
  aabcd
- ÑùÀıÊä³ö
+ æ ·ä¾‹è¾“å‡º
  a
  aa
  aab
@@ -27,7 +27,6 @@ package com.siwind.interview;
  c
  cd
  d
-
  */
 public class FibString {
 
