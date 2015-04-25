@@ -3,7 +3,7 @@ package com.siwind.interview;
 public class TrinaryTree {
 
 	/**
-	 *         0
+	 *              0
 	 *       3      2       1
 	 *     4 5 6  7 8 9  10 11 12             
 	 */
@@ -56,13 +56,20 @@ public class TrinaryTree {
 	}
 	
 	static int comm_parent(int n, int m){
-		if( n>m ){//make sure n <= m
-			int t = n;
-			n = m;
-			m = t;
+
+		while( n!=m ){//find closest common parent
+			if( n>m ) n = parent(n);
+			else m = parent(m);
 		}
-		if( n == m ) return n;
-		return comm_parent(n, parent(m));
+		return n;
+
+//		if( n>m ){//make sure n <= m
+//			int t = n;
+//			n = m;
+//			m = t;
+//		}
+//		if( n == m ) return n;
+//		return comm_parent(n, parent(m));
 	}
 	
 	static void test_common_parent(int n, int m){
